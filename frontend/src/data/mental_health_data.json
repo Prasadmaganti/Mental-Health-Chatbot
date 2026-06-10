@@ -1,0 +1,204 @@
+{
+  "categories": {
+    "stress_and_anxiety": {
+      "name": "Stress and Anxiety",
+      "validation": "It makes total sense that you're feeling stressed or anxious right now. Life can be incredibly overwhelming, and having your body and mind react with tension or worry is a completely natural response to heavy demands. You are not weak for feeling this way, and you do not have to carry it all alone.",
+      "coping_strategies": [
+        "Box Breathing: Inhale slowly for 4 seconds, hold your breath for 4 seconds, exhale completely for 4 seconds, and hold empty for 4 seconds. Repeat this cycle 4 times to regulate your nervous system.",
+        "5-4-3-2-1 Grounding: Pause and name 5 things you can see, 4 things you can physically feel/touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste around you.",
+        "Progressive Muscle Relaxation: Starting from your toes, tense a muscle group tightly for 5 seconds, then release it completely. Work your way up your body (calves, thighs, stomach, shoulders, face).",
+        "Worry Dump: Set a timer for 5 minutes and write down every single worry on a piece of paper or a digital note. Once the time is up, close it, symbolizing setting those worries aside for now."
+      ],
+      "professional_help_indicators": [
+        "Your anxiety or stress makes it difficult to complete daily tasks, attend classes, or maintain personal relationships.",
+        "You experience sudden, overwhelming panic attacks characterized by chest tightness, rapid heartbeat, hyperventilation, or a feeling of losing control.",
+        "The feelings of constant worry and physical tension persist almost daily for more than two weeks."
+      ],
+      "helplines": {
+        "crisis_line": "988 Lifeline (Call or Text 988 - Available 24/7 in US & Canada)",
+        "text_line": "Crisis Text Line (Text HOME to 741741 to connect with a crisis counselor 24/7)",
+        "international": "International resources can be found at https://findahelpline.com"
+      }
+    },
+    "loneliness": {
+      "name": "Loneliness",
+      "validation": "Feeling lonely is a deeply painful experience, and it is more common than most people realize. It is okay to feel disconnected or isolated, even when surrounded by others. Your desire for meaningful connection is normal, and this feeling is a signal of your human need for belonging, not a personal failure.",
+      "coping_strategies": [
+        "Micro-Connections: Initiate a small, low-pressure interaction. Smile or say thank you to a cashier, send a quick text message to an old friend, or leave a supportive comment on a post.",
+        "Shared Interests: Join a local club, volunteering group, class, or online community centered around a hobby you enjoy (reading, hiking, coding, crafting) to meet like-minded people.",
+        "Reframing Solitude: Use alone time to engage in a self-care activity you love, such as reading, cooking a favorite meal, or listening to a podcast, shifting the focus from isolation to nourishing yourself.",
+        "Media Connection: Listen to a conversational podcast or read a book with rich characters. While not a replacement for human interaction, this can help ease immediate feelings of quietness."
+      ],
+      "professional_help_indicators": [
+        "A persistent, deep sense of isolation that leads to a withdrawal from all social contact or activities.",
+        "Feelings of worthlessness, hopelessness, or severe depression accompanying the loneliness.",
+        "Avoiding social situations due to an intense fear of rejection or social anxiety."
+      ],
+      "helplines": {
+        "crisis_line": "988 Lifeline (Call or Text 988)",
+        "warmline": "National Warmline Directory (http://www.warmline.org) - Peer-run support lines for non-crisis listening",
+        "international": "Find a Helpline: https://findahelpline.com"
+      }
+    },
+    "academic_pressure": {
+      "name": "Academic Pressure",
+      "validation": "It is completely valid to feel crushed under the weight of academic expectations, grades, and heavy workloads. Your value as a person is not defined by your GPA, test scores, or academic achievements, though it is very easy to feel that way in competitive environments.",
+      "coping_strategies": [
+        "The Pomodoro Technique: Work focus-intensely for 25 minutes, then take a mandatory 5-minute break to stretch or drink water. After 4 cycles, take a longer 20-30 minute break.",
+        "Task Chunking: Break large assignments or study subjects into the smallest possible actionable tasks (e.g., 'write one paragraph' or 'read two pages') to reduce mental paralysis.",
+        "Define 'Done' for the Day: Establish a realistic cutoff time for studying each night. Give yourself permission to stop and rest, acknowledging that rest is essential for retention.",
+        "Eisenhower Matrix: Categorize your academic tasks into: Urgent & Important, Important & Not Urgent, Urgent & Not Important, and Neither. Focus heavily on the first two."
+      ],
+      "professional_help_indicators": [
+        "Academic stress leads to chronic insomnia, severe physical exhaustion, or recurrent tension headaches.",
+        "You experience academic paralysis where you are completely unable to start or complete tasks for days at a time.",
+        "A sudden, severe drop in grades accompanied by feelings of hopelessness, severe self-criticism, or despair."
+      ],
+      "helplines": {
+        "crisis_line": "988 Lifeline (Call or Text 988)",
+        "student_support": "Grad Resources Helpline (1-877-GRAD-HLP or 1-877-472-3457)",
+        "international": "Find a Helpline: https://findahelpline.com"
+      }
+    },
+    "exam_anxiety": {
+      "name": "Exam Anxiety",
+      "validation": "Feeling anxious or fearful before or during exams is incredibly common. The pressure to perform can trigger a strong fight-or-flight response, making it hard to think clearly. It is okay if you feel nervous, but remember that an exam is only a temporary snapshot of specific knowledge, not a measure of your intelligence.",
+      "coping_strategies": [
+        "Pre-Exam Grounding: Before the exam starts, sit back, plant both feet flat on the floor, close your eyes, and take three deep abdominal breaths to calm your physiological response.",
+        "Positive Affirmations: Replace negative thoughts (e.g., 'I will fail') with constructive statements (e.g., 'I have prepared for this as best as I could,' or 'I can handle this one question at a time').",
+        "Skip and Return: If you hit a difficult question and feel panic rising, immediately skip it and move to a question you know. This builds confidence and resets your focus.",
+        "Post-Exam Boundary: Once the exam is done, make a conscious decision to avoid discussing answers with peers or analyzing performance. Shift your attention entirely to rest."
+      ],
+      "professional_help_indicators": [
+        "You experience severe physical symptoms (vomiting, fainting, panic attacks, severe trembling) leading up to or during an exam.",
+        "Your mind regularly 'goes completely blank' during exams despite having studied and understood the material thoroughly.",
+        "The fear of exams causes you to avoid attending classes, submitting assignments, or taking the tests altogether."
+      ],
+      "helplines": {
+        "crisis_line": "988 Lifeline (Call or Text 988)",
+        "student_support": "Your school's student counseling services or academic advising center.",
+        "international": "Find a Helpline: https://findahelpline.com"
+      }
+    },
+    "sleep_issues": {
+      "name": "Sleep Issues",
+      "validation": "Lying awake at night with a racing mind or waking up feeling exhausted is incredibly frustrating. Sleep is deeply connected to your mental well-being, and when it is disrupted, everything else feels harder. It is natural to feel irritable or overwhelmed when you're sleep-deprived.",
+      "coping_strategies": [
+        "Cognitive Shuffle: To stop a racing mind, choose a word (e.g., 'CALM'). For each letter, think of multiple words starting with that letter (e.g., Cat, Car, Cup). Repeat for all letters.",
+        "Wind-Down Routine: Establish a non-screen routine 30-60 minutes before bed. Read a physical book, write in a journal, listen to soft music, or do gentle stretches.",
+        "The 20-Minute Rule: If you cannot fall asleep after 20 minutes, get out of bed. Go to a dimly lit room and do a quiet activity (like reading or drawing) until you feel sleepy. Keep the bed associated only with sleep.",
+        "Digital Sunset: Put away smartphones, laptops, and tablets at least an hour before sleep. Avoid checking the time if you wake up in the middle of the night."
+      ],
+      "professional_help_indicators": [
+        "Experiencing chronic insomnia or severe daytime sleepiness that persists for more than three weeks.",
+        "Sleep issues accompanied by severe night terrors, sleep walking, or difficulty breathing during sleep.",
+        "Using sleeping pills, alcohol, or other substances regularly to try and fall asleep."
+      ],
+      "helplines": {
+        "crisis_line": "988 Lifeline (Call or Text 988)",
+        "medical_support": "Consult a primary care physician or sleep specialist for clinical assessment.",
+        "international": "Find a Helpline: https://findahelpline.com"
+      }
+    },
+    "low_self_esteem": {
+      "name": "Low Self-Esteem",
+      "validation": "Struggling with feelings of inadequacy, self-doubt, or critical self-talk is a heavy burden to carry. It's okay to feel down on yourself sometimes, but please know that your inner critic is not always telling the truth. You are worthy of kindness, patience, and respect, especially from yourself.",
+      "coping_strategies": [
+        "Catch and Reframe: When you notice a self-critical thought (e.g., 'I'm stupid'), challenge it. Reframe it into a more balanced statement (e.g., 'I made a mistake, but I am learning').",
+        "The Friend Test: When you say something harsh to yourself, ask: 'Would I say this to a close friend in this situation?' If not, try to speak to yourself with the same compassion you'd offer them.",
+        "Daily Wins Log: Write down three things you did well or appreciate about yourself each day, no matter how small (e.g., 'I made my bed,' 'I helped a colleague,' 'I cooked a meal').",
+        "Limit Perfectionism: Practice doing a minor task 'imperfectly' on purpose. Notice that the world doesn't end, helping to decouple your self-worth from flawless performance."
+      ],
+      "professional_help_indicators": [
+        "Extreme feelings of worthlessness, self-hatred, or persistent thoughts of harming yourself.",
+        "Avoiding jobs, social opportunities, or relationships because you feel entirely undeserving of them.",
+        "Your self-esteem is so fragile that any minor criticism leads to severe depression or intense emotional outbursts."
+      ],
+      "helplines": {
+        "crisis_line": "988 Lifeline (Call or Text 988)",
+        "text_line": "Crisis Text Line (Text HOME to 741741)",
+        "international": "Find a Helpline: https://findahelpline.com"
+      }
+    },
+    "relationship_problems": {
+      "name": "Relationship Problems",
+      "validation": "Conflict, distance, or instability in relationships with partners, friends, or family can feel deeply destabilizing. We are social creatures, and when our key connections are strained, it is natural to feel hurt, angry, anxious, or lonely. Your pain in these moments is a testament to how much you care.",
+      "coping_strategies": [
+        "'I' Statements: When communicating, frame feelings using 'I feel [emotion] when [action] because [reason]' rather than 'You always [accusation],' reducing defensiveness.",
+        "Cool Down Period: If a conversation is escalating into an argument, state clearly: 'I care about this, but I feel too angry/upset to speak constructively. Let's take a 20-minute break to calm down.'",
+        "Define Your Boundaries: Write down what behaviors are acceptable and unacceptable to you. Communicate these boundaries calmly and stand by them, recognizing that boundaries protect relationships.",
+        "Active Listening: Focus on understanding the other person's perspective fully before formulating your response. Mirror back what they say: 'What I hear you saying is... is that correct?'"
+      ],
+      "professional_help_indicators": [
+        "The relationship involves physical violence, emotional abuse, manipulation, constant threats, or controlling behavior.",
+        "You feel unsafe expressing your thoughts, feelings, or needs, or are constantly walking on eggshells.",
+        "The distress from relationship conflicts leaves you feeling unable to sleep, eat, work, or care for yourself."
+      ],
+      "helplines": {
+        "domestic_violence": "National Domestic Violence Hotline: Call 1-800-799-SAFE (7233) or Text 'START' to 88788 (US)",
+        "crisis_line": "988 Lifeline (Call or Text 988)",
+        "international": "Find a Helpline: https://findahelpline.com"
+      }
+    },
+    "career_confusion": {
+      "name": "Career Confusion",
+      "validation": "Feeling lost, stuck, or uncertain about your professional path is highly stressful and incredibly common. There is immense pressure to have your life figured out, but career paths are rarely straight lines. It is okay to be in a transition phase, and it does not mean you are falling behind.",
+      "coping_strategies": [
+        "Values Alignment: Write down your top 5 personal values (e.g., creativity, financial stability, autonomy, helping others). Use these as a filter to evaluate potential job paths.",
+        "Informational Interviewing: Reach out to professionals working in fields you're curious about. Ask for a brief 15-minute chat to learn about their daily work and entry requirements.",
+        "Skills Audit: List your transferable skills (e.g., communication, organization, problem-solving). Focus on what you *can* do, which builds confidence and broadens options.",
+        "Small Experiments: Instead of making a massive leap, try a low-risk test. Take a free online course, do a weekend project, or volunteer a few hours a week in a new field."
+      ],
+      "professional_help_indicators": [
+        "Career-related indecision triggers severe, constant panic, hopelessness, or depressive episodes.",
+        "You feel stuck in a toxic or deeply draining job but find yourself completely paralyzed from making any changes for months.",
+        "The anxiety surrounding career choices leads to physical illness, severe burnout, or feelings of despair."
+      ],
+      "helplines": {
+        "crisis_line": "988 Lifeline (Call or Text 988)",
+        "career_counseling": "Consult your university's career services department or a professional career counselor.",
+        "international": "Find a Helpline: https://findahelpline.com"
+      }
+    },
+    "homesickness": {
+      "name": "Homesickness",
+      "validation": "Missing your home, family, familiar surroundings, and support system is a very real and valid form of grief. Moving to a new place is a massive transition, and feeling out of place or wishing to return to comfort is a natural human reaction to change. Give yourself permission to mourn what you left behind.",
+      "coping_strategies": [
+        "Create Familiarity: Incorporate elements of home into your new space. Cook a family recipe, display photos of loved ones, or keep a comfort item visible in your room.",
+        "Establish a Connection Schedule: Set specific, recurring times to call or video-chat with family and friends from home. This gives you connection to look forward to without preventing you from engaging locally.",
+        "Explore Your New Area: Take a walk in your new neighborhood, find a local coffee shop, or visit a nearby park. Gradually turning the unfamiliar environment into a familiar one helps build comfort.",
+        "Say 'Yes' to Social Invites: Force yourself to attend low-key social gatherings, club meetings, or study groups. Building a local support system is the most effective way to ease homesickness."
+      ],
+      "professional_help_indicators": [
+        "The sadness from homesickness prevents you from leaving your room, attending classes, or eating properly for weeks.",
+        "You feel completely disconnected from your current environment and experience persistent crying spells or hopelessness.",
+        "An overwhelming desire to abandon your studies or job immediately due to intense separation anxiety."
+      ],
+      "helplines": {
+        "crisis_line": "988 Lifeline (Call or Text 988)",
+        "student_support": "Your school's student counseling or international student support office.",
+        "international": "Find a Helpline: https://findahelpline.com"
+      }
+    },
+    "social_media_comparison": {
+      "name": "Social Media Comparison",
+      "validation": "It is completely understandable to feel inadequate or like you are falling behind when scrolling through social media. Platforms are engineered to show highlight reels, not the reality of daily life. Falling into the comparison trap is a natural consequence of using these apps, but it doesn't mean your life is lacking.",
+      "coping_strategies": [
+        "Curate Your Feed: Unfollow, mute, or block any account that consistently makes you feel insecure, anxious, or self-critical. Fill your feed with accounts that educate, inspire, or make you laugh.",
+        "Social Media Fast: Set a strict daily limit on social media apps (e.g., 30 minutes total) or take a full 48-hour digital detox over the weekend to ground yourself in the physical world.",
+        "Gratitude Grounding: When you catch yourself comparing, close the app and write down three things in your own life that you are genuinely grateful for right now.",
+        "Mindful Scrolling: Before opening an app, check in: 'Why am I opening this? (boredom, anxiety, distraction) How do I want to feel?' Awareness breaks automatic scrolling habits."
+      ],
+      "professional_help_indicators": [
+        "Social media scrolling regularly triggers severe body dysmorphia, eating disorders, or intense self-loathing.",
+        "You experience severe social anxiety, avoiding real-life interactions because they don't match online expectations.",
+        "The constant comparison drives you to spend money you don't have or take extreme risks to project an online lifestyle."
+      ],
+      "helplines": {
+        "crisis_line": "988 Lifeline (Call or Text 988)",
+        "text_line": "Crisis Text Line (Text HOME to 741741)",
+        "international": "Find a Helpline: https://findahelpline.com"
+      }
+    }
+  }
+}
