@@ -1,5 +1,10 @@
 import os
+import sys
 import json
+
+# Add the parent directory to sys.path so 'backend' can be imported when running from backend directory
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -7,7 +12,7 @@ from dotenv import load_dotenv
 
 from backend.services.crisis_detector import detect_crisis
 from backend.services.memory_service import memory_manager
-from backend.services.openai_service import generate_chat_response
+from backend.services.groq_service import generate_chat_response
 
 # Load environment variables from .env if present
 load_dotenv()

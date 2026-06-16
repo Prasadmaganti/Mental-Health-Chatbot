@@ -252,7 +252,7 @@ export default function Home() {
 
   const checkBackendHealth = async () => {
     try {
-      const res = await fetch('http://localhost:8000/health');
+      const res = await fetch('http://127.0.0.1:8000/health');
       if (res.ok) {
         const data = await res.json();
         if (data.status === 'healthy') {
@@ -288,7 +288,7 @@ export default function Home() {
       suicide: [/su[ic]+id/i, /suisid/i, /kill myself/i, /end my life/i, /want to die/i, /hang myself/i, /slit my wrists/i, /better off dead/i, /don't want to live/i, /wish i were dead/i],
       self_harm: [/self[- ]harm/i, /cut myself/i, /cutting myself/i, /hurt myself/i, /burn myself/i, /burning myself/i, /mutilat/i],
       abuse: [/abuse/i, /domestic violence/i, /physically hurt/i, /beaten/i, /beating me/i, /sexual assault/i, /raped/i, /hit me/i],
-      violence: [/kill them/i, /hurt them/i, /stab/i, /shoot/i, /weapon/i, /attack someone/i, /assault them/i, /m[ui]rd[eu]r/i, /unauthori[sz]ed activit/i, /dangerous thing/i, /commit a crime/i, /bomb/i, /terrorist/i],
+      violence: [/\bkill\b/i, /kill them/i, /hurt them/i, /stab/i, /shoot/i, /weapon/i, /attack someone/i, /assault them/i, /m[ui]rd[eu]r/i, /\bunauthori[sz]ed/i, /\bunwanted/i, /unauthori[sz]ed activit/i, /dangerous thing/i, /commit a crime/i, /bomb/i, /terrorist/i],
       emergency: [/overdose/i, /poison/i, /chok/i, /bleeding/i, /heart attack/i, /emergency/i, /ambulance/i, /call 911/i, /call 999/i]
     };
 
@@ -312,11 +312,11 @@ export default function Home() {
     };
 
     const messagesList = {
-      suicide: "You're not alone. Please reach out to professional services available 24/7.",
-      self_harm: "Your safety is important. Please connect with someone who can help support you right now.",
-      abuse: "You deserve to be safe. Please reach out to dedicated organizations for support.",
-      violence: "Please stop and take a breath. Safety is critical. Reach out for help.",
-      emergency: "This is a medical emergency. Please contact emergency services immediately."
+      suicide: "It sounds like you are thinking or taking a wrong way or wrong decisions. I don't know the answer for this, please contact the licensed authorities to cure your mindset. Please reach out to the given mobile numbers immediately.",
+      self_harm: "It sounds like you are thinking or taking a wrong way or wrong decisions. I don't know the answer for this, please contact the licensed authorities to cure your mindset. Please reach out to the given mobile numbers immediately.",
+      abuse: "I don't know the answer for this. If you are facing abuse or unsafe conditions, please contact the licensed authorities to guide you. Please connect with the given mobile numbers below.",
+      violence: "You are taking wrong decisions, please don't encourage that type of thinking. I don't know the answer for this, please contact the licensed authorities immediately. Please contact the given mobile numbers below.",
+      emergency: "I don't know the answer for this. This sounds like an immediate emergency. Please contact the licensed authorities immediately or reach out to the given mobile numbers below."
     };
 
     return {
@@ -330,9 +330,9 @@ export default function Home() {
     const categories = mentalHealthData.categories;
 
     const keywords = {
-      stress_and_anxiety: ["stress", "anxi", "anxious", "overwhelm", "worry", "panick", "panic"],
+      stress_and_anxiety: ["stress", "anxi", "anxious", "overwhelm", "worry", "panick", "panic", "tension", "depress"],
       loneliness: ["lonely", "loneliness", "isolated", "alone", "disconnect"],
-      academic_pressure: ["academic", "study", "studies", "gpa", "grade", "homework", "assignment", "pressure"],
+      academic_pressure: ["academic", "study", "studies", "gpa", "grade", "homework", "assignment", "pressure", "presentation", "project"],
       exam_anxiety: ["exam", "test", "quiz", "finals"],
       sleep_issues: ["sleep", "insomnia", "awake", "night", "tired"],
       low_self_esteem: ["esteem", "worthless", "hate myself", "critic", "not good enough"],
@@ -342,25 +342,19 @@ export default function Home() {
       social_media_comparison: ["social media", "instagram", "tiktok", "compare"]
     };
 
-    let matchedKey = '';
-    let maxMatches = 0;
-
+    const matchedKeys: string[] = [];
     for (const [key, wordList] of Object.entries(keywords)) {
-      let currentMatches = 0;
       for (const word of wordList) {
-        if (msgLower.includes(word)) currentMatches += 1;
-      }
-      if (currentMatches > maxMatches) {
-        maxMatches = currentMatches;
-        matchedKey = key;
+        if (msgLower.includes(word)) {
+          matchedKeys.push(key);
+          break;
+        }
       }
     }
 
-    if (matchedKey && matchedKey in categories) {
-      const data = categories[matchedKey as keyof typeof categories];
-      const randomStrategy = data.coping_strategies[Math.floor(Math.random() * data.coping_strategies.length)];
-      const strategyFormatted = randomStrategy.includes(':') ? randomStrategy.split(':')[0] : randomStrategy;
-
+    if (matchedKeys.length > 0) {
+      let replyParts = ["I hear you, and your feelings are completely valid. 🫂💛 Here are my suggestions and exercises for the concerns you mentioned:\n\n"];
+      
       const categorySuggestions: { [key: string]: string } = {
         stress_and_anxiety: "Stepping away from screens for a few minutes can help reset your mind.",
         loneliness: "Try reaching out to a friend or joining a community with shared hobbies.",
@@ -373,11 +367,22 @@ export default function Home() {
         homesickness: "Decorate your new room with photos of loved ones to create a sense of comfort.",
         social_media_comparison: "Unfollow or mute accounts that make you feel inadequate or self-critical."
       };
-      
-      const suggestion = categorySuggestions[matchedKey] || "Take a deep breath and give yourself some grace.";
+
+      matchedKeys.forEach(matchedKey => {
+        if (matchedKey in categories) {
+          const data = categories[matchedKey as keyof typeof categories];
+          const randomStrategy = data.coping_strategies[Math.floor(Math.random() * data.coping_strategies.length)];
+          const strategyFormatted = randomStrategy.includes(':') ? randomStrategy.split(':')[0] : randomStrategy;
+          const suggestion = categorySuggestions[matchedKey] || "Take a deep breath and give yourself some grace.";
+          
+          replyParts.push(`✨ **For ${data.name}**:\n💡 **Suggestion**: ${suggestion}\n💪 **Exercise**: **${strategyFormatted}**\n\n`);
+        }
+      });
+
+      replyParts.push("Take a moment for yourself. I'm here if you want to share more. 🌸");
 
       return {
-        reply: `I hear you, and your feelings are completely valid. 🫂💛 Here is my suggestion and a quick exercise to try:\n\n💡 **Suggestion**: ${suggestion}\n\n💪 **Exercise**: **${strategyFormatted}**\n\nTake a moment for yourself. I'm here if you want to share more. 🌸`
+        reply: replyParts.join("")
       };
     }
 
@@ -423,7 +428,7 @@ export default function Home() {
 
     if (backendMode === 'connected') {
       try {
-        const response = await fetch('http://localhost:8000/chat', {
+        const response = await fetch('http://127.0.0.1:8000/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: text, session_id: sessionId })
@@ -470,7 +475,7 @@ export default function Home() {
       
       if (backendMode === 'connected') {
         try {
-          await fetch('http://localhost:8000/clear', {
+          await fetch('http://127.0.0.1:8000/clear', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ session_id: sessionId })
@@ -586,7 +591,7 @@ export default function Home() {
               <span className={`w-2 h-2 rounded-full ${backendMode === 'connected' ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`} />
             </div>
             <p className="text-[10px] opacity-70 mt-0.5">
-              {backendMode === 'connected' ? 'FastAPI Connected (Secure API)' : 'Local Safe Emulation Mode'}
+              {backendMode === 'connected' ? 'A Safe Space for Emotional Well-Being' : 'Local Safe Emulation Mode'}
             </p>
           </div>
         </div>

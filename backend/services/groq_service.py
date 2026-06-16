@@ -11,51 +11,36 @@ try:
     with open(KNOWLEDGE_BASE_PATH, "r", encoding="utf-8") as f:
         mental_health_data = json.load(f)
 except Exception as e:
-    print(f"Warning: Could not load knowledge base in openai_service: {e}")
+    print(f"Warning: Could not load knowledge base in groq_service: {e}")
 
 def get_mock_response(message: str) -> str:
     """
-    Generates a smart, empathetic response from the knowledge base when OpenAI is not available.
+    Generates a smart, empathetic response from the knowledge base when Groq is not available.
     """
     message_lower = message.lower()
     categories = mental_health_data.get("categories", {})
     
     # Simple keyword mapping to categories
     category_keywords = {
-        "stress_and_anxiety": ["stress", "anxi", "anxious", "overwhelm", "worry", "panick", "panic"],
+        "stress_and_anxiety": ["stress", "anxi", "anxious", "overwhelm", "worry", "panick", "panic", "tension", "depress"],
         "loneliness": ["lonely", "loneliness", "isolated", "no friends", "alone", "disconnect"],
-        "academic_pressure": ["academic", "study", "studies", "gpa", "grade", "homework", "assignment", "pressure"],
+        "academic_pressure": ["academic", "study", "studies", "gpa", "grade", "homework", "assignment", "pressure", "presentation", "project"],
         "exam_anxiety": ["exam", "test", "quiz", "finals", "midterm"],
         "sleep_issues": ["sleep", "insomnia", "awake", "night", "tired", "exhausted", "nightmare"],
         "low_self_esteem": ["esteem", "inadequate", "worthless", "hate myself", "ugly", "critic", "not good enough", "confidence"],
-        "relationship_problems": ["relationship", "partner", "friend", "argument", "fight", "conflict", "breakup", "boyfriend", "girlfriend", "family"],
+        "relationship_problems": ["relationship", "partner", "friend", "argument", "fight", "conflict", "breakup", "boyfriend", "girlfriend"],
         "career_confusion": ["career", "job", "major", "stuck", "profession", "future", "work", "confusion"],
         "homesickness": ["home", "homesick", "miss", "family", "parent", "neighborhood", "leave"],
         "social_media_comparison": ["social media", "instagram", "tiktok", "facebook", "scroll", "compare", "comparing", "highlight"]
     }
     
-    matched_category = None
-    max_matches = 0
-    
-    # Remove 'family' from relationship keywords to prevent homesickness conflict
-    category_keywords["relationship_problems"] = ["relationship", "partner", "friend", "argument", "fight", "conflict", "breakup", "boyfriend", "girlfriend"]
-
+    matched_categories = []
     for cat_key, keywords in category_keywords.items():
-        current_matches = sum(1 for keyword in keywords if keyword in message_lower)
-        if current_matches > max_matches:
-            max_matches = current_matches
-            matched_category = cat_key
+        if any(keyword in message_lower for keyword in keywords):
+            matched_categories.append(cat_key)
             
-    if matched_category and matched_category in categories:
-        data = categories[matched_category]
-        strategies = data.get("coping_strategies", [])
-        strategy = random.choice(strategies) if strategies else "Take a deep breath and sit with your thoughts for a moment."
-        
-        # Format strategy clearly
-        parts = strategy.split(':')
-        strategy_title = parts[0]
-        strategy_desc = parts[1].strip() if len(parts) > 1 else ""
-        strategy_formatted = f"**{strategy_title}**: {strategy_desc}" if strategy_desc else f"**{strategy}**"
+    if matched_categories:
+        reply_parts = ["I hear you, and your feelings are completely valid. 🫂💛 Here are my suggestions and exercises for the concerns you mentioned:\n\n"]
         
         category_suggestions = {
             "stress_and_anxiety": "Stepping away from screens for a few minutes can help reset your mind.",
@@ -70,14 +55,25 @@ def get_mock_response(message: str) -> str:
             "social_media_comparison": "Unfollow or mute accounts that make you feel inadequate or self-critical."
         }
         
-        suggestion = category_suggestions.get(matched_category, "Take a deep breath and give yourself some grace.")
-        
-        return (
-            f"I hear you, and your feelings are completely valid. 🫂💛 Here is my suggestion and a quick exercise to try:\n\n"
-            f"💡 **Suggestion**: {suggestion}\n\n"
-            f"💪 **Exercise**: {strategy_formatted}\n\n"
-            f"Take a moment for yourself. I'm here if you want to share more. 🌸"
-        )
+        for matched_category in matched_categories:
+            if matched_category in categories:
+                data = categories[matched_category]
+                name = data.get("name", matched_category.replace("_", " ").title())
+                strategies = data.get("coping_strategies", [])
+                strategy = random.choice(strategies) if strategies else "Take a deep breath and sit with your thoughts for a moment."
+                
+                # Format strategy clearly
+                parts = strategy.split(':')
+                strategy_title = parts[0]
+                strategy_desc = parts[1].strip() if len(parts) > 1 else ""
+                strategy_formatted = f"**{strategy_title}**: {strategy_desc}" if strategy_desc else f"**{strategy}**"
+                
+                suggestion = category_suggestions.get(matched_category, "Take a deep breath and give yourself some grace.")
+                
+                reply_parts.append(f"✨ **For {name}**:\n💡 **Suggestion**: {suggestion}\n💪 **Exercise**: {strategy_formatted}\n\n")
+                
+        reply_parts.append("Take a moment for yourself. I'm here if you want to share more. 🌸")
+        return "".join(reply_parts)
         
     # Default general fallback
     return (
@@ -86,10 +82,10 @@ def get_mock_response(message: str) -> str:
 
 def generate_chat_response(messages: list, system_prompt: str) -> str:
     """
-    Sends the messages (including system prompt) to OpenAI API or falls back to the mock service.
+    Sends the messages (including system prompt) to Groq API or falls back to the mock service.
     Supports API key rotation and automatic failover.
     """
-    keys_str = os.getenv("OPENAI_API_KEYS") or os.getenv("OPENAI_API_KEY")
+    keys_str = os.getenv("GROQ_API_KEY") or os.getenv("GROQ_API_KEYS") or os.getenv("OPENAI_API_KEYS") or os.getenv("OPENAI_API_KEY")
     if not keys_str:
         # Get the content of the last user message to generate mock response
         user_message = ""
@@ -158,7 +154,7 @@ def generate_chat_response(messages: list, system_prompt: str) -> str:
                     max_tokens=400
                 )
                 return response.choices[0].message.content
-            else:
+            elif key.startswith("sk-"):
                 # Call OpenAI API dynamically to avoid linter errors when not installed
                 import importlib
                 openai_module = importlib.import_module("openai")
@@ -174,6 +170,22 @@ def generate_chat_response(messages: list, system_prompt: str) -> str:
                     max_tokens=400
                 )
                 return response.choices[0].message.content
+            else:
+                # Call Groq API dynamically using the official groq SDK
+                import importlib
+                groq_module = importlib.import_module("groq")
+                Groq = groq_module.Groq
+                client = Groq(api_key=key)
+                # Construct messages payload with system prompt first
+                payload = [{"role": "system", "content": system_prompt}] + messages
+                
+                response = client.chat.completions.create(
+                    model="llama-3.3-70b-versatile",
+                    messages=payload,
+                    temperature=0.7,
+                    max_tokens=400
+                )
+                return response.choices[0].message.content
         except Exception as e:
             # Catch API errors, rate limit errors, quota errors
             masked_key = f"{key[:8]}...{key[-4:]}" if len(key) > 12 else "invalid_key"
@@ -182,7 +194,7 @@ def generate_chat_response(messages: list, system_prompt: str) -> str:
             continue  # Fallback to the next key in the list
 
     # If all keys fail, fall back to the mock response
-    print(f"All OpenAI API keys failed. Final error: {last_error}")
+    print(f"All API keys failed. Final error: {last_error}")
     user_message = ""
     for msg in reversed(messages):
         if msg.get("role") == "user":

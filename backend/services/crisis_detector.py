@@ -43,6 +43,7 @@ CRISIS_PATTERNS = {
         r"\bphysically abusive\b"
     ],
     "violence": [
+        r"\bkill\b",
         r"\bkill them\b",
         r"\bhurt them\b",
         r"\bstab\b",
@@ -53,6 +54,8 @@ CRISIS_PATTERNS = {
         r"\bharm others\b",
         r"\bkill someone\b",
         r"\bm[ui]rd[eu]r\b",
+        r"\bunauthori[sz]ed\b",
+        r"\bunwanted\b",
         r"\bunauthori[sz]ed activit(y|ies)\b",
         r"\bdangerous thing(s)?\b",
         r"\bcommit a crime\b",
@@ -81,7 +84,7 @@ COMPILED_PATTERNS = {
 
 CRISIS_RESPONSES = {
     "suicide": {
-        "message": "It sounds like you are going through an incredibly difficult time, but please know that you are not alone and there is support available. If you are having thoughts of suicide or feeling overwhelmed, please reach out to professional services immediately. They are confidential, free, and available 24/7.",
+        "message": "It sounds like you are thinking or taking a wrong way or wrong decisions. I don't know the answer for this, please contact the licensed authorities to cure your mindset. Please reach out to the given mobile numbers immediately—they are confidential, free, and available 24/7.",
         "helplines": [
             "National Suicide Prevention Lifeline: Call or text 988 (US & Canada)",
             "Crisis Text Line: Text HOME to 741741 (US, UK, Canada)",
@@ -91,7 +94,7 @@ CRISIS_RESPONSES = {
         ]
     },
     "self_harm": {
-        "message": "I'm so sorry you're feeling this way, but please know that your safety is important. If you are experiencing urges to self-harm or hurt yourself, please connect with someone who can help support you right now. Professional crisis support is free, confidential, and available 24/7.",
+        "message": "It sounds like you are thinking or taking a wrong way or wrong decisions. I don't know the answer for this, please contact the licensed authorities to cure your mindset. Please reach out to the given mobile numbers immediately.",
         "helplines": [
             "Crisis Text Line: Text HOME to 741741 (US, UK, Canada)",
             "National Suicide Prevention Lifeline: Call or text 988 (US & Canada)",
@@ -100,7 +103,7 @@ CRISIS_RESPONSES = {
         ]
     },
     "abuse": {
-        "message": "It sounds like you are dealing with abuse or unsafe conditions. Please know that you deserve to be safe, respected, and supported. There are organizations dedicated to helping you find safety and navigate this situation confidentially.",
+        "message": "I don't know the answer for this. If you are facing abuse or unsafe conditions, please contact the licensed authorities to guide you. Please connect with the given mobile numbers below.",
         "helplines": [
             "National Domestic Violence Hotline: Call 1-800-799-SAFE (7233) or text START to 88788 (US)",
             "National Sexual Assault Hotline (RAINN): Call 1-800-656-4673 (US)",
@@ -109,7 +112,7 @@ CRISIS_RESPONSES = {
         ]
     },
     "violence": {
-        "message": "I'm hearing that you are feeling intense anger or urge to hurt others. Please stop and take a breath. Your safety and the safety of those around you is critical. Please reach out to someone who can help you de-escalate these feelings and find healthy support.",
+        "message": "You are taking wrong decisions, please don't encourage that type of thinking. I don't know the answer for this, please contact the licensed authorities immediately. Please contact the given mobile numbers below.",
         "helplines": [
             "National Crisis Support: Call or text 988",
             "Crisis Text Line: Text HOME to 741741",
@@ -117,7 +120,7 @@ CRISIS_RESPONSES = {
         ]
     },
     "emergency": {
-        "message": "This sounds like an immediate medical emergency. If you or someone else is in physical danger, has overdosed, is bleeding heavily, or is having severe trouble breathing, please contact emergency services immediately. Do not wait for this chat.",
+        "message": "I don't know the answer for this. This sounds like an immediate emergency. Please contact the licensed authorities immediately or reach out to the given mobile numbers below.",
         "helplines": [
             "US/Canada: Call 911",
             "UK: Call 999 or 111",
